@@ -6,7 +6,7 @@ import answerImg from '../assets/images/answer.svg'
 
 import { Button } from "../components/Button";
 import { RoomCode } from '../components/RoomCode';
-//import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../hooks/useAuth';
 import '../styles/room.scss';
 import { Question } from '../components/Question';
 import { useRoom } from '../hooks/useRoom';
@@ -19,17 +19,30 @@ type RoomParams = {
 }
 
 export function AdminRoom() {
-    //const {user} = useAuth();
+   // const {user} = useAuth();
     const history = useHistory();
     const params = useParams<RoomParams>();
     const roomId = params.id
     const { title, questions} = useRoom(roomId); 
 
     async function handleEndRoom() {
-        await database.ref(`rooms/${roomId}`).update({
-            endedAt: new Date(),
-        })
+        if (window.confirm('Tem certeza que você deseja excluir essa pergunta?')) {
 
+            await database.ref(`rooms/${roomId}`).update({
+                endedAt: new Date(),
+            })
+    
+            history.push('/')
+        }
+    }
+
+    async function handleNewRoom() {
+    
+        history.push('/rooms/new')
+    }
+    
+    async function handleRoomExists() {
+    
         history.push('/')
     }
 
@@ -60,6 +73,8 @@ export function AdminRoom() {
                    <div>
                         <RoomCode code={roomId} />
                         <Button onClick={handleEndRoom} isOutlined>Encerrar sala</Button>
+                        <Button onClick={handleNewRoom}>Criar nova sala</Button>
+                        <Button onClick={handleRoomExists}>Ir para uma sala existente</Button>
                    </div>
                 </div>
             </header>
@@ -67,7 +82,7 @@ export function AdminRoom() {
             <main className="content">
                 <div className="room-title">
                     <h1>Sala {title}</h1>
-                    { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+                    { questions.length > 0 ? <span>{questions.length} pergunta(s)</span>: <span className="span">Ainda não há perguntas a serem respondidas</span> }
                 </div>
 
                    <div className="question-list">

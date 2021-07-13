@@ -1,6 +1,6 @@
 .room-code {
     height: 100%;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     overflow: hidden;
 
     background: #fff;
@@ -10,9 +10,9 @@
     display: flex;
 
     div {
-        height: 40px;
+        height: 2.5rem;
         background: #835afd;
-        padding: 0 12px;
+        padding: 0 0.75rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -22,9 +22,16 @@
         display: block;
         align-self: center;
         flex: 1;
-        padding: 0 16px 0 12px;
-        width: 240px;
-        font-size: 14px;
+        padding: 0 1rem 0 0.75rem;
+        width: 15rem;
+        font-size: 0.785rem;
         font-weight: 500;
+    }
+   
+}
+
+@media (max-width: 720px) {
+    #page-room main .room-title {
+        justify-content: center;
     }
 }

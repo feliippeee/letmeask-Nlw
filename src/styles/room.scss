@@ -1,6 +1,6 @@
 #page-room {
     header {
-        padding:24px;
+        padding:1.5rem;
         border-bottom: 1px solid #e2e2e2;
 
         .content {
@@ -11,15 +11,15 @@
             align-items: center;
 
             > img {
-                max-height: 45px;
+                max-height: 2.5rem;
 
             }
             > div {
                 display: flex;
-                gap: 16px;
+                gap: 1rem;
 
                 button {
-                    height: 40px;                    
+                    height: 2.5rem;                    
                 }
             }
         }
@@ -30,7 +30,7 @@
         margin: 0 auto;
 
         .room-title {
-            margin: 32px 0 24px;
+            margin: 2rem 0 1.5rem;
             display: flex;
             align-items: center;
 
@@ -41,13 +41,13 @@
             }
 
             span {
-                margin-left: 16px;
+                margin-left: 1rem;
                 background: #e559f9;
                 border-radius: 9999px;
-                padding: 8px 16px;
+                padding: 0.5rem 1rem;
                 color: #fff;
                 font-weight: 500;
-                font-size: 14px;
+                font-size: 0.875rem;
 
             }
         }
@@ -107,7 +107,30 @@
         }
 
         .question-list {
-            margin-top: 32px;
+            margin-top: 2rem;
         }
     }
+}
+
+@media (max-width: 720px) {
+    #page-room main form .form-footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+    #page-room header .content > img {
+        margin-bottom: 1rem;
+    }
+    #page-room main .room-title {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    #page-room main form textarea, .question {
+        margin: 1rem;
+        width: 90%;
+    }
+
+
 }

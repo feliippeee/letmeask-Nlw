@@ -138,3 +138,27 @@
     }
 }
 
+@media (max-width: 720px) {
+    #page-auth aside {
+        //padding: 1rem 2rem;
+        display: none;
+        visibility: hidden;
+    }
+    #page-auth .main-content h2 {
+        margin: 1.5rem 0 1.5rem 0;
+    }
+    #page-auth aside p, #page-auth aside strong {
+        text-align: center;
+        
+    }
+    #page-auth {
+        flex-direction: column;
+    }
+    #page-auth .main-content > img {
+        margin-top: 0.5rem;
+        align-self: auto;
+    }
+    #page-auth .create-room {
+        margin-top: 2rem;
+    }
+}

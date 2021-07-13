@@ -10,6 +10,27 @@ body {
 }
 
 body, input, button, textarea {
-    font: 400 16px "Roboto", sans-serif;
+    font: 400 1rem "Roboto", sans-serif;
 
 }
+
+@media (min-width: 1080px) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 87.5%;
+    }
+    #page-room header .content {
+
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    #page-room header .content div {
+        flex-direction: column;
+    }
+}
+
